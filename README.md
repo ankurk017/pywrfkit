@@ -314,7 +314,7 @@ If you use this toolkit in your research, please cite:
   title={PyWRFKit: A Python Toolkit for WRF Data Processing and Analysis},
   author={Ankur Kumar},
   year={2024},
-  url={https://github.com/yourusername/pywrfkit}
+  url={https://github.com/ankurk017/pywrfkit}
 }
 ```
 

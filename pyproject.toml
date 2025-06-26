@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pywrfkit"
-version = "0.1.0"
+version = "0.1.1"
 description = "A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization"
 readme = "README.md"
 license = {text = "MIT"}
@@ -54,10 +54,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/pywrfkit"
-Documentation = "https://github.com/yourusername/pywrfkit#readme"
-Repository = "https://github.com/yourusername/pywrfkit"
-"Bug Tracker" = "https://github.com/yourusername/pywrfkit/issues"
+Homepage = "https://github.com/ankurk017/pywrfkit"
+Documentation = "https://github.com/ankurk017/pywrfkit#readme"
+Repository = "https://github.com/ankurk017/pywrfkit"
+"Bug Tracker" = "https://github.com/ankurk017/pywrfkit/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

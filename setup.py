@@ -16,13 +16,13 @@ def read_requirements():
 
 setup(
     name="pywrfkit",
-    version="0.1.0",
+    version="0.1.1",
     author="Ankur Kumar",
     author_email="ankurk017@gmail.com",
     description="A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization",
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/pywrfkit",
+    url="https://github.com/ankurk017/pywrfkit",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -63,8 +63,8 @@ setup(
     },
     keywords="wrf weather forecasting meteorology climate atmospheric science",
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/pywrfkit/issues",
-        "Source": "https://github.com/yourusername/pywrfkit",
-        "Documentation": "https://github.com/yourusername/pywrfkit#readme",
+        "Bug Reports": "https://github.com/ankurk017/pywrfkit/issues",
+        "Source": "https://github.com/ankurk017/pywrfkit",
+        "Documentation": "https://github.com/ankurk017/pywrfkit#readme",
     },
 ) 
