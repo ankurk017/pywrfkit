@@ -16,8 +16,8 @@ import matplotlib.ticker as mticker
 from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 import cartopy.crs as ccrs
 import matplotlib.patches as patches
-from osgeo import gdal, osr
-import pyproj
+# from osgeo import gdal, osr
+# import pyproj
 
 from scipy.interpolate import griddata
 # from src.lulc_colormap import get_lulc_colormap
