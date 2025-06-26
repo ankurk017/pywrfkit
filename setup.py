@@ -49,9 +49,6 @@ setup(
         "pyproj>=3.4.0",
     ],
     extras_require={
-        "full": [
-            "gdal>=3.4.0",
-        ],
         "dev": [
             "pytest>=7.0.0",
             "pytest-cov>=4.0.0",
