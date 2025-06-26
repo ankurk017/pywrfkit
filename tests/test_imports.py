@@ -7,7 +7,7 @@ import pytest
 def test_package_import():
     """Test that the main package can be imported."""
     import pywrfkit
-    assert pywrfkit.__version__ == "0.1.3"
+    assert pywrfkit.__version__ == "0.1.4"
 
 def test_module_imports():
     """Test that all modules can be imported."""

@@ -10,7 +10,7 @@ This package provides utilities for:
 - AHPS data processing
 """
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 __author__ = "Ankur Kumar"
 __email__ = "ankurk017@gmail.com"
 

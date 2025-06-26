@@ -16,7 +16,7 @@ def read_requirements():
 
 setup(
     name="pywrfkit",
-    version="0.1.3",
+    version="0.1.4",
     author="Ankur Kumar",
     author_email="ankurk017@gmail.com",
     description="A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization",
