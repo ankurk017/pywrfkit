@@ -7,24 +7,36 @@ import pytest
 def test_package_import():
     """Test that the main package can be imported."""
     import pywrfkit
-    assert pywrfkit.__version__ == "0.1.0"
+    assert pywrfkit.__version__ == "0.1.1"
 
-def test_module_imports():
-    """Test that all modules can be imported."""
-    from pywrfkit import wrf, geog, polar, download, coast, plot_geog, ahps, xrvar, params, metrics, norms
+def test_core_module_imports():
+    """Test that core modules (non-GDAL dependent) can be imported."""
+    from pywrfkit import wrf, polar, download, coast, plot_geog, xrvar, params, metrics, norms
     
     # Test that modules exist
     assert wrf is not None
-    assert geog is not None
     assert polar is not None
     assert download is not None
     assert coast is not None
     assert plot_geog is not None
-    assert ahps is not None
     assert xrvar is not None
     assert params is not None
     assert metrics is not None
     assert norms is not None
+
+def test_gdal_dependent_module_imports():
+    """Test that GDAL-dependent modules can be imported (optional)."""
+    try:
+        from pywrfkit import geog, ahps
+        
+        # Test that modules exist
+        assert geog is not None
+        assert ahps is not None
+        print("✓ GDAL-dependent modules imported successfully")
+        
+    except ImportError as e:
+        print(f"⚠ GDAL-dependent modules not available: {e}")
+        pytest.skip("GDAL not available - skipping GDAL-dependent module tests")
 
 def test_wrf_functions():
     """Test that wrf module functions exist."""
@@ -57,6 +69,24 @@ def test_metrics_functions():
     assert callable(metrics.l1)
     assert callable(metrics.l2)
     assert callable(metrics.sup)
+
+def test_gdal_functions():
+    """Test that GDAL-dependent functions exist (optional)."""
+    try:
+        from pywrfkit import geog, ahps
+        
+        # Test geog functions
+        assert hasattr(geog, 'update_geog')
+        assert callable(geog.update_geog)
+        
+        # Test ahps functions
+        assert hasattr(ahps, 'read_ahps')
+        assert callable(ahps.read_ahps)
+        
+        print("✓ GDAL-dependent functions available")
+        
+    except ImportError:
+        pytest.skip("GDAL not available - skipping GDAL-dependent function tests")
 
 if __name__ == "__main__":
     pytest.main([__file__]) 
