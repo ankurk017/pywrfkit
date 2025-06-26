@@ -2,6 +2,11 @@
 
 A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization. This toolkit provides utilities for handling WRF geogrid files, coordinate transformations, data downloading, plotting, and various meteorological analysis tasks.
 
+---
+**Author:** Ankur Kumar  
+**Contact:** ankurk017@gmail.com
+---
+
 ## Features
 
 - **WRF Data Processing**: Coordinate handling and data manipulation for WRF model outputs
@@ -307,7 +312,7 @@ If you use this toolkit in your research, please cite:
 ```bibtex
 @software{pywrfkit,
   title={PyWRFKit: A Python Toolkit for WRF Data Processing and Analysis},
-  author={Your Name},
+  author={Ankur Kumar},
   year={2024},
   url={https://github.com/yourusername/pywrfkit}
 }
@@ -315,7 +320,7 @@ If you use this toolkit in your research, please cite:
 
 ## Support
 
-For questions, issues, or contributions, please open an issue on the GitHub repository or contact the maintainers.
+For questions, issues, or contributions, please open an issue on the GitHub repository or contact the maintainer at ankurk017@gmail.com.
 
 ## Acknowledgments
 
