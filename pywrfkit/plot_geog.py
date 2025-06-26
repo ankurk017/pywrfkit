@@ -125,31 +125,31 @@ def plot_domain(ax):
  return None
 
 
-plt.rcParams.update({"font.size": 14, "font.weight": "bold", "savefig.dpi": 300})
+# plt.rcParams.update({"font.size": 14, "font.weight": "bold", "savefig.dpi": 300})
 
-hurr = 'Milton'
+# hurr = 'Milton'
 
-domain = 'd03'
-geog_2001 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d01.nc_2001"
-geog_2020 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d01.nc_2023"
+# domain = 'd03'
+# geog_2001 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d01.nc_2001"
+# geog_2020 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d01.nc_2023"
 
-geog_2050 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d03.nc_2001"
-geog_2100 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d03.nc_2023"
+# geog_2050 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d03.nc_2001"
+# geog_2100 =  f"/nas/rstor/akumar/USA/PhD/2024_Hurricanes/{hurr}/{hurr}_def/WPS_dumy/geo_em.d03.nc_2023"
 
-fig = plt.figure(figsize=(10.5, 9))
+# fig = plt.figure(figsize=(10.5, 9))
 
-# Create subplots with specific projection
-axes1 = plt.subplot(2, 2, 1, projection=ccrs.PlateCarree())
-axes2 = plt.subplot(2, 2, 2, projection=ccrs.PlateCarree())
-axes3 = plt.subplot(2, 2, 3, projection=ccrs.PlateCarree())
-axes4 = plt.subplot(2, 2, 4, projection=ccrs.PlateCarree())
+# # Create subplots with specific projection
+# axes1 = plt.subplot(2, 2, 1, projection=ccrs.PlateCarree())
+# axes2 = plt.subplot(2, 2, 2, projection=ccrs.PlateCarree())
+# axes3 = plt.subplot(2, 2, 3, projection=ccrs.PlateCarree())
+# axes4 = plt.subplot(2, 2, 4, projection=ccrs.PlateCarree())
 
-plot_lulc_geogrid(geog_2001, label=f"(a) {geog_2001.split('/')[-1].split('.')[1]} LULC 2001", axes=axes1)
-plot_lulc_geogrid(geog_2020, label=f"(a) {geog_2020.split('/')[-1].split('.')[1]} LULC 2024", axes=axes2)
-plot_lulc_geogrid(geog_2050, label=f"(a) {geog_2050.split('/')[-1].split('.')[1]} LULC 2001", axes=axes3)
-plot_lulc_geogrid(geog_2100, label=f"(a) {geog_2100.split('/')[-1].split('.')[1]} LULC 2024", axes=axes4)
+# plot_lulc_geogrid(geog_2001, label=f"(a) {geog_2001.split('/')[-1].split('.')[1]} LULC 2001", axes=axes1)
+# plot_lulc_geogrid(geog_2020, label=f"(a) {geog_2020.split('/')[-1].split('.')[1]} LULC 2024", axes=axes2)
+# plot_lulc_geogrid(geog_2050, label=f"(a) {geog_2050.split('/')[-1].split('.')[1]} LULC 2001", axes=axes3)
+# plot_lulc_geogrid(geog_2100, label=f"(a) {geog_2100.split('/')[-1].split('.')[1]} LULC 2024", axes=axes4)
 
-plt.subplots_adjust(hspace=0.25)
-# plt.savefig(f'../figures_draft01/fig01_{domain}_cropland.jpeg', dpi=400)
-plt.show()
+# plt.subplots_adjust(hspace=0.25)
+# # plt.savefig(f'../figures_draft01/fig01_{domain}_cropland.jpeg', dpi=400)
+# plt.show()
 
