@@ -3,7 +3,7 @@
 A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization. This toolkit provides utilities for handling WRF coordinate transformations, data downloading, plotting, and various meteorological analysis tasks.
 
 ---
-**Author:** Ankur Kumar  
+**Author:** Ankur Kumar     
 **Contact:** ankurk017@gmail.com
 ---
 
