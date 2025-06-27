@@ -32,6 +32,7 @@ def convert_to_polar(variable, radius=5, resolution=None, coords=('hurricane_rad
     -----
     - The function assumes that the input coordinates are in degrees and converts the radius to km (multiplied by 111.11).
     - The interpolation is performed using linear interpolation with NaN fill values for points outside the original grid.
+    - This function assumes the input data is in Cartesian coordinates.
     """
     if resolution is None:
         resolution = np.diff(variable[coords[0]])[0]
