@@ -1,89 +1,64 @@
 Examples
 ========
 
-This section provides comprehensive examples of how to use PyWRFKit for various meteorological analysis tasks.
-
-Getting Started
---------------
+This section provides examples of how to use pywrfkit for various tasks.
 
 .. toctree::
    :maxdepth: 2
 
-   basic_usage
-   hurricane_analysis
-   data_visualization
-
-Workflow Examples
-----------------
-
-.. toctree::
-   :maxdepth: 2
-
-   wrf_processing
-   polar_analysis
-   data_download
-
-Advanced Examples
-----------------
-
-.. toctree::
-   :maxdepth: 2
-
-   statistical_analysis
-   custom_plots
-
-Example Gallery
---------------
-
-Basic WRF Data Processing
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Basic Usage Examples
+-------------------
 
 .. code-block:: python
 
+   # Import pywrfkit modules
+   from pywrfkit import wrf, polar, download
+   
+   # Basic WRF coordinate handling
    import xarray as xr
-   from pywrfkit import wrf, polar, metrics
-
-   # Load WRF output
-   ds = xr.open_dataset('wrfout_d01_2024-12-01_00:00:00')
+   ds = xr.open_dataset('wrf_output.nc')
+   ds_with_coords = wrf.add_coords(ds)
    
-   # Process temperature data
-   temp = wrf.add_coords(ds['T2'], rename=True)
-   temp_renamed = wrf.renamelatlon(temp)
+   # Polar coordinate conversion for hurricane analysis
+   polar_data = polar.convert_to_polar(ds, center_lat=25.0, center_lon=-80.0)
    
-   print(f"Temperature range: {temp_renamed.min():.2f} to {temp_renamed.max():.2f} K")
+   # Download GFS forecast data
+   download.gfs_forecast('20240101', '20240102', output_dir='./gfs_data')
 
-Hurricane Analysis
-~~~~~~~~~~~~~~~~~
+Hurricane Analysis Example
+-------------------------
 
 .. code-block:: python
 
-   # Convert wind data to polar coordinates
-   wind_speed = wrf.add_coords(ds['U10'], rename=True)
-   polar_wind = polar.convert_to_polar(
-       wind_speed,
-       radius=5,  # degrees
-       resolution=0.1
+   from pywrfkit import polar
+   import xarray as xr
+   
+   # Load WRF output data
+   ds = xr.open_dataset('hurricane_simulation.nc')
+   
+   # Convert to polar coordinates around hurricane center
+   polar_ds = polar.convert_to_polar(
+       ds, 
+       center_lat=25.0, 
+       center_lon=-80.0,
+       radius=500000  # 500 km radius
    )
    
-   # Calculate statistics
-   mean_wind = polar_wind.mean()
-   max_wind = polar_wind.max()
-   
-   print(f"Mean wind speed: {mean_wind:.2f} m/s")
-   print(f"Maximum wind speed: {max_wind:.2f} m/s")
+   # Analyze wind patterns
+   wind_speed = polar_ds['U10']**2 + polar_ds['V10']**2
+   wind_speed = wind_speed**0.5
 
-Data Download and Processing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Data Download Example
+--------------------
 
 .. code-block:: python
 
    from pywrfkit import download
    
-   # Download GFS forecast data
+   # Download GFS forecast data for a specific date range
    download.gfs_forecast(
-       start_date='2024120100',
-       total_forecast_hours=72
-   )
-   
-   # Process downloaded data
-   # (Additional processing code would go here) 
+       start_date='20240101',
+       end_date='20240103',
+       output_dir='./gfs_forecasts',
+       variables=['TMP', 'RH', 'UGRD', 'VGRD']
+   ) 

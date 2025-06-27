@@ -10,20 +10,28 @@ def convert_to_polar(variable, radius=5, resolution=None, coords=('hurricane_rad
     This function takes a variable in Cartesian coordinates and converts it to polar coordinates.
     It then interpolates the values onto the new polar grid.
 
-    Args:
-        variable (xarray.DataArray): The variable to convert, typically wind speed or another meteorological variable.
-        radius (float, optional): The maximum radius for polar coordinates in degrees. Defaults to 5.
-        resolution (float, optional): The resolution of the polar grid. If None, it's calculated from the input data. Defaults to None.
-        coords (tuple, optional): The names of the x and y coordinate variables in the input data. 
-                                  Defaults to ('hurricane_radial_distance_x', 'hurricane_radial_distance_y').
+    Parameters
+    ----------
+    variable : xarray.DataArray
+        The variable to convert, typically wind speed or another meteorological variable.
+    radius : float, optional
+        The maximum radius for polar coordinates in degrees. Defaults to 5.
+    resolution : float, optional
+        The resolution of the polar grid. If None, it's calculated from the input data. Defaults to None.
+    coords : tuple, optional
+        The names of the x and y coordinate variables in the input data. 
+        Defaults to ('hurricane_radial_distance_x', 'hurricane_radial_distance_y').
 
-    Returns:
-        xarray.DataArray: A new DataArray with the variable interpolated onto a polar grid.
-                          The dimensions are 'angle' (in radians) and 'radius' (in km).
+    Returns
+    -------
+    xarray.DataArray
+        A new DataArray with the variable interpolated onto a polar grid.
+        The dimensions are 'angle' (in radians) and 'radius' (in km).
 
-    Note:
-        - The function assumes that the input coordinates are in degrees and converts the radius to km (multiplied by 111.11).
-        - The interpolation is performed using linear interpolation with NaN fill values for points outside the original grid.
+    Notes
+    -----
+    - The function assumes that the input coordinates are in degrees and converts the radius to km (multiplied by 111.11).
+    - The interpolation is performed using linear interpolation with NaN fill values for points outside the original grid.
     """
     if resolution is None:
         resolution = np.diff(variable[coords[0]])[0]

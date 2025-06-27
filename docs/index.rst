@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PyWRFKit's documentation!
+Welcome to pywrfkit documentation!
 ====================================
 
-A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization.
+pywrfkit is a comprehensive toolkit for Weather Research and Forecasting (WRF) data processing, analysis, and visualization.
 
 .. image:: https://badge.fury.io/py/pywrfkit.svg
    :target: https://badge.fury.io/py/pywrfkit
@@ -82,7 +82,6 @@ Quick Start
    installation
    modules/index
    examples/index
-   api/index
    contributing
    changelog
 
