@@ -9,6 +9,11 @@ on:
   schedule:
     - cron: '0 0 * * 0'  # Weekly build on Sundays at midnight UTC
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-docs:
     runs-on: ubuntu-latest
