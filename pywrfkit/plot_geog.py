@@ -1,34 +1,34 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import xarray as xr
-import cartopy.crs as ccrs
+try:
+    import cartopy.crs as ccrs
+    from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+    CARTOPY_AVAILABLE = True
+except ImportError:
+    CARTOPY_AVAILABLE = False
+    # Create dummy classes for when cartopy is not available
+    class ccrs:
+        class PlateCarree:
+            pass
+    class LONGITUDE_FORMATTER:
+        pass
+    class LATITUDE_FORMATTER:
+        pass
 
-
-import numpy as np
-import matplotlib.pyplot as plt
 import glob
-import xarray as xr
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
-
-from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
-import cartopy.crs as ccrs
 import matplotlib.patches as patches
+from scipy.interpolate import griddata
+from matplotlib.colors import ListedColormap
+from matplotlib import colors
+
 # from osgeo import gdal, osr
 # import pyproj
-
-from scipy.interpolate import griddata
 # from src.lulc_colormap import get_lulc_colormap
 
 from pyhelpme import coast
-
-import cartopy.crs as ccrs
-import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
-import numpy as np
-from matplotlib import colors
 
 
 def get_lulc_colormap():
@@ -83,6 +83,9 @@ def draw_box(bb):
 
 
 def plot_lulc_geogrid(geog_file, label='LULC 2001', legend=False, axes=None):
+    if not CARTOPY_AVAILABLE:
+        raise ImportError("Cartopy is required for plot_lulc_geogrid function. Please install cartopy.")
+    
     pre_geog_file = xr.open_dataset(geog_file, engine="netcdf4")
 
     wrf_longitudes_pre = pre_geog_file["XLONG_M"].squeeze().values
@@ -151,5 +154,4 @@ def plot_domain(ax):
 
 # plt.subplots_adjust(hspace=0.25)
 # # plt.savefig(f'../figures_draft01/fig01_{domain}_cropland.jpeg', dpi=400)
-# plt.show()
-
+# plt.show() 

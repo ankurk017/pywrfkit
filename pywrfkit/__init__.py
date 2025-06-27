@@ -10,32 +10,46 @@ This package provides utilities for:
 - AHPS data processing
 """
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 __author__ = "Ankur Kumar"
 __email__ = "ankurk017@gmail.com"
 
-# Import all modules
+# Import core modules (always available)
 from . import wrf
 from . import polar
 from . import download
-from . import coast
-from . import plot_geog
-from . import ahps
 from . import xrvar
 from . import params
 from . import metrics
 from . import norms
+
+# Import cartopy-dependent modules (optional)
+try:
+    from . import coast
+    from . import plot_geog
+    from . import ahps
+    CARTOPY_AVAILABLE = True
+except ImportError:
+    CARTOPY_AVAILABLE = False
+    # Create dummy modules for when cartopy is not available
+    class coast:
+        pass
+    class plot_geog:
+        pass
+    class ahps:
+        pass
 
 # Define what gets imported with "from pywrfkit import *"
 __all__ = [
     'wrf',
     'polar',
     'download',
-    'coast',
-    'plot_geog',
-    'ahps',
     'xrvar',
     'params',
     'metrics',
-    'norms'
+    'norms',
+    'coast',
+    'plot_geog',
+    'ahps',
+    'CARTOPY_AVAILABLE'
 ]

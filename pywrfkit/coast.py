@@ -1,8 +1,29 @@
-import cartopy.crs as ccrs
-import cartopy.feature as cfeature
-from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+try:
+    import cartopy.crs as ccrs
+    import cartopy.feature as cfeature
+    from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+    import cartopy
+    CARTOPY_AVAILABLE = True
+except ImportError:
+    CARTOPY_AVAILABLE = False
+    # Create dummy classes for when cartopy is not available
+    class ccrs:
+        class PlateCarree:
+            pass
+    class cfeature:
+        class NaturalEarthFeature:
+            pass
+        class LAND:
+            pass
+        class OCEAN:
+            pass
+    class LONGITUDE_FORMATTER:
+        pass
+    class LATITUDE_FORMATTER:
+        pass
+    cartopy = None
+
 import matplotlib.pyplot as plt
-import cartopy
 
 
 def get_proj():

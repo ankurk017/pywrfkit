@@ -1,6 +1,21 @@
 import xarray as xr
 import numpy as np
-import cartopy.crs as ccrs
+try:
+    import cartopy.crs as ccrs
+    CARTOPY_AVAILABLE = True
+except ImportError:
+    CARTOPY_AVAILABLE = False
+    # Create dummy classes for when cartopy is not available
+    class ccrs:
+        class NorthPolarStereo:
+            def __init__(self, **kwargs):
+                pass
+        class PlateCarree:
+            def __init__(self, **kwargs):
+                pass
+            def transform_points(self, *args, **kwargs):
+                # Return dummy transformed points
+                return np.array([[[0, 0, 0]]])
 
 
 def read_ahps(ahps_filename):

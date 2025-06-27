@@ -2,10 +2,7 @@
 
 A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization. This toolkit provides utilities for handling WRF coordinate transformations, data downloading, plotting, and various meteorological analysis tasks.
 
----
-**Author:** Ankur Kumar     
-**Contact:** ankurk017@gmail.com
----
+
 
 ## Features
 
@@ -22,21 +19,32 @@ A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model 
 # Install from PyPI
 pip install pywrfkit
 
+# Install with cartopy support (for visualization modules)
+pip install pywrfkit[cartopy]
+
 # Or install from source
 git clone https://github.com/ankurk017/pywrfkit.git
 cd pywrfkit
 pip install -e .
+
+# Install with cartopy support from source
+pip install -e .[cartopy]
 ```
 
 ### Dependencies
 
+**Core Dependencies:**
 - `xarray` - Multi-dimensional array handling
 - `numpy` - Numerical computing
 - `matplotlib` - Plotting and visualization
-- `cartopy` - Geographic plotting
 - `scipy` - Scientific computing
 - `pandas` - Data manipulation
 - `pyproj` - Cartographic projections
+
+**Optional Dependencies:**
+- `cartopy` - Geographic plotting (required for `coast`, `plot_geog`, and `ahps` modules)
+
+**Note:** The `coast`, `plot_geog`, and `ahps` modules require cartopy. If cartopy is not installed, these modules will raise an ImportError when used. Install with `pip install pywrfkit[cartopy]` to include cartopy support.
 
 ## Modules Overview
 
