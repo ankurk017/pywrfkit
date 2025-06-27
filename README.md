@@ -57,7 +57,7 @@ pip install -e .[cartopy]
 
 ## Documentation
 
-Comprehensive documentation is available at: **https://pywrfkit.github.io**
+Comprehensive documentation is available at: **https://ankurk017.github.io/pywrfkit/**
 
 ### Building Documentation Locally
 
