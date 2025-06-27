@@ -1,6 +1,3 @@
-# PyWRFKit
-
-A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization. This toolkit provides utilities for handling WRF coordinate transformations, data downloading, plotting, and various meteorological analysis tasks.
 
 [![PyPI version](https://badge.fury.io/py/pywrfkit.svg)](https://badge.fury.io/py/pywrfkit)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -12,6 +9,10 @@ A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model 
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
 [![Issues](https://img.shields.io/github/issues/ankurk017/pywrfkit)](https://github.com/ankurk017/pywrfkit/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/ankurk017/pywrfkit)](https://github.com/ankurk017/pywrfkit/pulls)
+
+# PyWRFKit
+
+A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization. This toolkit provides utilities for handling WRF coordinate transformations, data downloading, plotting, and various meteorological analysis tasks.
 
 ## Features
 
