@@ -50,6 +50,11 @@ setup(
     ],
     extras_require={
         "cartopy": ["cartopy>=0.21.0"],
+        "docs": [
+            "sphinx>=7.0.0",
+            "sphinx-rtd-theme>=3.0.0",
+            "sphinx-autodoc-typehints>=2.0.0",
+        ],
         "dev": [
             "pytest>=7.0.0",
             "pytest-cov>=4.0.0",
@@ -58,6 +63,9 @@ setup(
             "twine>=4.0.0",
             "build>=0.10.0",
             "cartopy>=0.21.0",
+            "sphinx>=7.0.0",
+            "sphinx-rtd-theme>=3.0.0",
+            "sphinx-autodoc-typehints>=2.0.0",
         ],
     },
     keywords="wrf, weather, forecasting, meteorology, climate, atmospheric science",

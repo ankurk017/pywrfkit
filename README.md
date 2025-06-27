@@ -1,4 +1,3 @@
-
 [![PyPI version](https://badge.fury.io/py/pywrfkit.svg)](https://badge.fury.io/py/pywrfkit)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -55,6 +54,36 @@ pip install -e .[cartopy]
 - `cartopy` - Geographic plotting (required for `coast`, `plot_geog`, and `ahps` modules)
 
 **Note:** The `coast`, `plot_geog`, and `ahps` modules require cartopy. If cartopy is not installed, these modules will raise an ImportError when used. Install with `pip install pywrfkit[cartopy]` to include cartopy support.
+
+## Documentation
+
+Comprehensive documentation is available at: **https://pywrfkit.github.io**
+
+### Building Documentation Locally
+
+To build the documentation locally:
+
+```bash
+# Install documentation dependencies
+pip install pywrfkit[docs]
+
+# Build documentation
+cd docs
+make html
+
+# Or use the build script
+python build_docs.py
+```
+
+The documentation will be available at `docs/_build/html/index.html`.
+
+### Documentation Features
+
+- **API Reference**: Complete function and module documentation
+- **Installation Guide**: Detailed setup instructions
+- **Examples**: Practical usage examples and workflows
+- **Contributing Guidelines**: How to contribute to the project
+- **Changelog**: Version history and changes
 
 ## Modules Overview
 
