@@ -16,7 +16,7 @@ def read_requirements():
 
 setup(
     name="pywrfkit",
-    version="0.1.1",
+    version="0.1.5",
     author="Ankur Kumar",
     author_email="ankurk017@gmail.com",
     description="A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization",
@@ -37,21 +37,19 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Operating System :: OS Independent",
+        "License :: OSI Approved :: MIT License",
     ],
     python_requires=">=3.8",
     install_requires=[
         "xarray>=2023.1.0",
         "numpy>=1.21.0",
         "matplotlib>=3.5.0",
-        "cartopy>=0.21.0",
         "scipy>=1.9.0",
         "pandas>=1.5.0",
         "pyproj>=3.4.0",
     ],
     extras_require={
-        "full": [
-            "gdal>=3.4.0",
-        ],
+        "cartopy": ["cartopy>=0.21.0"],
         "dev": [
             "pytest>=7.0.0",
             "pytest-cov>=4.0.0",
@@ -59,12 +57,14 @@ setup(
             "flake8>=5.0.0",
             "twine>=4.0.0",
             "build>=0.10.0",
+            "cartopy>=0.21.0",
         ],
     },
-    keywords="wrf weather forecasting meteorology climate atmospheric science",
+    keywords="wrf, weather, forecasting, meteorology, climate, atmospheric science",
     project_urls={
-        "Bug Reports": "https://github.com/ankurk017/pywrfkit/issues",
-        "Source": "https://github.com/ankurk017/pywrfkit",
+        "Homepage": "https://github.com/ankurk017/pywrfkit",
         "Documentation": "https://github.com/ankurk017/pywrfkit#readme",
+        "Repository": "https://github.com/ankurk017/pywrfkit",
+        "Bug Tracker": "https://github.com/ankurk017/pywrfkit/issues",
     },
 ) 

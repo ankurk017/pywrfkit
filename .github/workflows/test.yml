@@ -1,0 +1,41 @@
+name: Test Package
+
+on:
+  push:
+    branches: [ dev, main ]
+  pull_request:
+    branches: [ dev, main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, '3.10', '3.11']
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .
+        pip install pytest
+    
+    - name: Run tests
+      run: |
+        python -m pytest tests/ -v
+    
+    - name: Test package import (core modules)
+      run: |
+        python -c "import pywrfkit; print(f'PyWRFKit version: {pywrfkit.__version__}')"
+        python -c "from pywrfkit import wrf, polar, download, xrvar, params, metrics, norms; print('Core modules imported successfully')"
+    
+    - name: Test cartopy-dependent modules
+      run: |
+        python -c "from pywrfkit import coast, plot_geog, ahps; print('Cartopy-dependent modules imported successfully')" || echo "Cartopy not available, skipping cartopy-dependent modules" 

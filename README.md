@@ -1,14 +1,10 @@
 # PyWRFKit
 
-A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization. This toolkit provides utilities for handling WRF geogrid files, coordinate transformations, data downloading, plotting, and various meteorological analysis tasks.
-
-
----
+A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model data processing, analysis, and visualization. This toolkit provides utilities for handling WRF coordinate transformations, data downloading, plotting, and various meteorological analysis tasks.
 
 ## Features
 
 - **WRF Data Processing**: Coordinate handling and data manipulation for WRF model outputs
-- **Geographic Data Updates**: Land Use Land Cover (LULC) and NDVI data integration
 - **Polar Coordinate Transformations**: Convert Cartesian coordinates to polar for hurricane analysis
 - **Data Downloading**: Automated GFS forecast data retrieval
 - **Visualization**: Cartopy-based mapping and plotting utilities
@@ -18,25 +14,35 @@ A comprehensive Python toolkit for Weather Research and Forecasting (WRF) model 
 ## Installation
 
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd pywrfkit
+# Install from PyPI
+pip install pywrfkit
 
-# Install dependencies
-pip install -r requirements.txt
+# Install with cartopy support (for visualization modules)
+pip install pywrfkit[cartopy]
+
+# Or install from source
+git clone https://github.com/ankurk017/pywrfkit.git
+cd pywrfkit
+pip install -e .
+
+# Install with cartopy support from source
+pip install -e .[cartopy]
 ```
 
 ### Dependencies
 
+**Core Dependencies:**
 - `xarray` - Multi-dimensional array handling
 - `numpy` - Numerical computing
 - `matplotlib` - Plotting and visualization
-- `cartopy` - Geographic plotting
 - `scipy` - Scientific computing
 - `pandas` - Data manipulation
-- `gdal` - Geospatial data abstraction
 - `pyproj` - Cartographic projections
-- `osgeo` - Geospatial data processing
+
+**Optional Dependencies:**
+- `cartopy` - Geographic plotting (required for `coast`, `plot_geog`, and `ahps` modules)
+
+**Note:** The `coast`, `plot_geog`, and `ahps` modules require cartopy. If cartopy is not installed, these modules will raise an ImportError when used. Install with `pip install pywrfkit[cartopy]` to include cartopy support.
 
 ## Modules Overview
 
@@ -56,22 +62,6 @@ ds_with_coords = wrf.add_coords(ds['T2'], rename=True)
 
 # Rename coordinates
 ds_renamed = wrf.renamelatlon(ds_with_coords)
-```
-
-### Geographic Data Processing (`geog.py`)
-
-Updates WRF geogrid files with MODIS LULC and NDVI data.
-
-```python
-from pywrfkit import geog
-
-# Update geogrid file with new LULC and NDVI data
-geog.update_geog(
-    geog_file='geo_em.d01.nc',
-    modis_lulc_file='LULC_2001.tif',
-    modis_ndvi_file='NDVI_2001.tif',
-    new_filename='geo_em.d01.nc_2001'
-)
 ```
 
 ### Polar Coordinate Transformations (`polar.py`)
@@ -134,7 +124,7 @@ from pywrfkit import coast, plot_geog
 fig, ax = plt.subplots(figsize=(10, 6), subplot_kw={'projection': ccrs.PlateCarree()})
 gl = coast.plot_coast(ax, color='blue', linewidth=1.5, states=True)
 
-# Plot LULC data
+# Plot geographic data
 plot_geog.plot_lulc_geogrid(
     'geo_em.d01.nc_2001',
     label='LULC 2001',
@@ -279,7 +269,6 @@ pywrfkit/
 ├── LICENSE            # License information
 ├── __init__.py        # Package initialization
 ├── wrf.py             # WRF coordinate utilities
-├── geog.py            # Geographic data processing
 ├── polar.py           # Polar coordinate transformations
 ├── download.py        # Data downloading utilities
 ├── coast.py           # Coastline plotting utilities
