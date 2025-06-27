@@ -56,7 +56,7 @@ def get_proj():
     return {'transform': ccrs.PlateCarree(), 'subplot_kws': {"projection": ccrs.PlateCarree()}}
 
 
-def plot_coast(axes: cartopy.mpl.geoaxes.GeoAxes, color='black', linewidth=2, gridlines_alpha=0.5, states=False) -> None:
+def plot_coast(axes, color='black', linewidth=2, gridlines_alpha=0.5, states=False) -> None:
     """
     Add coastlines, country borders, and optional state/provincial borders to a Cartopy GeoAxes.
 
